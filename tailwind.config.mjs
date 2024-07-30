@@ -51,6 +51,9 @@ module.exports = {
 			},
 			fontFamily: {
 
+				lato: [ "Lato", "sans-serif" ],
+				poppins: [ "Poppins", "sans-serif" ],
+				roboto: [ "Roboto", "sans-serif" ],
 
 			}
 
