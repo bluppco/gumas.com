@@ -1,0 +1,209 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
+import HeadingFourLargeBoldWhite from "@/atoms/atoms-nandini/headings/four/lg/bold/white/index.astro"
+import HeadingThree4xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/three/4xl/bold/center/white/index.astro"
+import HeadingTwo4xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/two/4xl/bold/center/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLargeCapitalizeCenterWhite from "@/atoms/atoms-nandini/paragraphs/lg/capitalize/center/white/index.astro"
+import ParagraphLargeCenterWhite from "@/atoms/atoms-nandini/paragraphs/lg/center/white/index.astro"
+import ParagraphSmallExtralightWhite from "@/atoms/atoms-nandini/paragraphs/sm/extralight/white/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// WORK ARRAY1
+const work1 = [
+
+    {
+        alternative_text:"Image",
+        description:"View case study",
+        link:"/case_study/49ers-foundation/",
+        source:"/images/our-work-1.jpeg",
+        title:"49ERS Foundation",
+    },
+    {
+        alternative_text:"Image",
+        description:"View case study",
+        link:"/case_study/by-the-bay-health/",
+        source:"/images/our-work-2.jpeg",
+        title:"by the bay health",
+    },
+    {
+        alternative_text:"Image",
+        description:"View case study",
+        link:"/case_study/mi-rancho/",
+        source:"/images/our-work-3.webp",
+        title:"mi rancho",
+    },
+
+] 
+
+// WORK ARRAY2
+const work2 = [
+
+    {
+        alternative_text:"Image",
+        description:"View case study",
+        link:"/case_study/monaghan-medical/",
+        source:"/images/our-work-6.jpeg",
+        title:"monaghan medical",
+    },
+    {
+        alternative_text:"Image",
+        description:"View case study",
+        link:"/case_study/yonex/",
+        source:"/images/our-work-7.jpeg",
+        title:"yonex",
+    },
+    {
+        alternative_text:"Image",
+        description:"View case study",
+        link:"/case_study/unitus-community-credit-union/",
+        source:"/images/our-work-8.webp",
+        title:"unitus community credit union",
+    },
+
+] 
+
+// HARDCODED DATA
+const data = {
+
+    button_text:"view case studies",
+    button_link:"/work/",
+    description:"Check out our Challenger Brand approach to messaging and design that connects with customers on an emotional level and drives them to action.",
+    alternative_text:"Image",
+    image_description:"View case study",
+    image1_link:"/case_study/lira-clinical/",
+    image2_link:"/case_study/varian-medical/",
+    image1_source:"/images/our-work-4.webp",
+    image2_source:"/images/our-work-5.webp",
+    image1_title:"lira clinical",
+    image2_title:"varian medical",
+    subtitle:"who we've helped",
+    subtitle_description:"view more case studies",
+    title:"Our Work",
+
+}
+
+---
+<section class="bg-black py-10">
+    <div class="space-y-20">
+        <div class="space-y-14">
+            <HeadingTwo4xlBoldCenterWhite>{ data.title }</HeadingTwo4xlBoldCenterWhite> 
+            <div class="mx-10 md:mx-40 xl:mx-96">
+                <ParagraphLargeCenterWhite>{ data.description }</ParagraphLargeCenterWhite>
+            </div>
+        </div>
+        <div class="md:grid md:grid-rows-3">
+            <div class="md:grid md:grid-cols-3">
+
+                {
+
+                    work1.map( ( item ) =>{
+
+                        return ( 
+
+                        <Link aria_label={ item.link } href={ item.link }>
+                            <div class="relative group">
+                                <div class="h-full aspect-square">
+                                    <PictureInternal 
+                                        alternative_text={ item.alternative_text }
+                                        source={ item.source }
+                                    />
+                                </div>
+                                <div class="absolute bg-black inset-0 opacity-30"></div>
+                                <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                                    <HeadingFourLargeBoldWhite>{ item.title }</HeadingFourLargeBoldWhite>
+                                    <ParagraphSmallExtralightWhite>{ item.description }</ParagraphSmallExtralightWhite>
+                                </div>
+                            </div>
+                        </Link>
+
+                        )
+
+                    })
+
+                }
+                
+            </div>
+            <div class="md:grid md:grid-cols-3 md:my-10 md:mx-5 lg:mx-0 lg:my-0">
+                <Link aria_label={ data.image1_link } href={ data.image1_link }>
+                    <div class="relative group">
+                        <div class="h-full aspect-square">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source={ data.image1_source }
+                            />
+                        </div>
+                        <div class="absolute bg-black inset-0 opacity-30"></div>
+                        <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                            <HeadingFourLargeBoldWhite>{ data.image1_title }</HeadingFourLargeBoldWhite>
+                            <ParagraphSmallExtralightWhite>{ data.image_description }</ParagraphSmallExtralightWhite>
+                        </div>
+                    </div>
+                </Link>
+                
+                <div class="bg-red-700 py-40 md:py-0">
+                    <div class="mt-20 md:mt-28 lg:mt-36 xl:mt-44 2xl:mt-60 group mx-5 md:mx-0">
+                        <div class="group-hover:hidden">
+                            <HeadingThree4xlBoldCenterWhite>{ data.subtitle }</HeadingThree4xlBoldCenterWhite>
+                            <ParagraphLargeCapitalizeCenterWhite>{ data.subtitle_description }</ParagraphLargeCapitalizeCenterWhite>
+                        </div>
+                        <div class="ml-20">
+                            <Link aria_label={ data.button_link } href={ data.button_link }>
+                                <ButtonTransparent>{ data.button_text }</ButtonTransparent>
+                            </Link>
+                        </div>    
+                    </div>
+                </div>
+
+                <Link aria_label={ data.image2_link } href={ data.image2_link }>
+                    <div class="relative group">
+                        <div class="h-full aspect-square">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source={ data.image2_source }
+                            />
+                        </div>
+                        <div class="absolute bg-black inset-0 opacity-30"></div>
+                        <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                            <HeadingFourLargeBoldWhite>{ data.image2_title }</HeadingFourLargeBoldWhite>
+                            <ParagraphSmallExtralightWhite>{ data.image_description }</ParagraphSmallExtralightWhite>
+                        </div>
+                    </div>
+                </Link>
+            </div>
+            <div class="md:grid md:grid-cols-3">
+
+                {
+
+                    work2.map( ( item ) =>{
+
+                        return ( 
+
+                        <Link aria_label={ item.link } href={ item.link }>
+                            <div class="relative group">
+                                <div class="h-full aspect-square">
+                                    <PictureInternal 
+                                        alternative_text={ item.alternative_text }
+                                        source={ item.source }
+                                    />
+                                </div>
+                                <div class="absolute bg-black inset-0 opacity-30"></div>
+                                <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                                    <HeadingFourLargeBoldWhite>{ item.title }</HeadingFourLargeBoldWhite>
+                                    <ParagraphSmallExtralightWhite>{ item.description }</ParagraphSmallExtralightWhite>
+                                </div>
+                            </div>
+                        </Link>
+
+                        )
+
+                    })
+
+                }
+                
+            </div>
+        </div>
+    </div>
+</section>
