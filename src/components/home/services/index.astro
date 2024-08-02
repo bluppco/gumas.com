@@ -1,0 +1,75 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT JSX COMPONENTS
+import ServicesAccordian from "@/components/home/services/accordion/jsx/index"
+
+// IMPORT ASTRO ATOMS
+import ButtonRedAnimated from "@/atoms/atoms-shiva/buttons/red-animated/index.astro"
+import HeadingTwo5XlSemoboldRed from "@/atoms/atoms-shiva/headings/two/5xl/semibold/red/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseLeadingWhite from "@/atoms/atoms-shiva/paragraphs/base/leading/white/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_link: "/",
+    button_text: "View All Services",
+    description: "Regardless of size, industry, or competitive set, our proven strategies help you generate greater results from your existing marketing resources so you can grow your business faster. We get results. From research, strategy development, award-winning creative design, web development, digital media (including search, social media and everything in between); our goal is to create a marketing strategy specifically designed to help build your unique Challenger Brand.",
+    title_bold: " under one roof.",
+    title: "All the marketing support you need",
+
+}
+const accordionData = [
+
+    { 
+        description: "Our Challenger Brand Discovery Process (CBDP) helps your company discover its true brand essence; that one thing that differentiates you, speaks directly to the needs of your target, and drives that prospect to action, assuring your marketing strategy performs at its highest level",
+        title: "Brand Strategy", 
+    },
+    { 
+        description: "We start by eliminating guessing – Intimately know your target. Deeply understand your competitors. Accept and exploit the true essence of your organization. Then develop the marketing strategy that completely surrounds your prospect.",
+        title: "Brand Development", 
+    },
+    { 
+        description: "We understand what it takes to get your prospects to say, “that’s exactly what I was looking for.” We gather the valuable data, insight and perspective that leads us directly to the perfect message and overall advertising strategy.",
+        title: "Messaging Strategy", 
+    },
+    { 
+        description: "Our creative development philosophy focuses on bringing your brand’s strategy to life. We design with your prospect in mind; what they need to see, hear and feel to drive response. We provide all of the creative services that Challenger Brands need", 
+        title: "Creative Services", 
+    },
+    { 
+        description: "Your website is likely your most important marketing tool. Customer experiences on your site reflects your brand’s integrity, positioning and competency. Web strategists guided by sound Challenger Brand principles create powerful websites that prioritize user engagement and traffic conversion – turning prospects into customers.", 
+        title: "Web Development", 
+    },
+    { 
+        description: "Social media is a critical part of any Challenger Brand Marketing® strategy as consumers compare, research and experience what your brand has to offer, allowing you to measurably connect with your customers. Our social media campaigns connect and engage with your prospect.", 
+        title: "Social Media Marketing", 
+    },
+
+]
+
+---
+
+<section class="relative py-16">
+    <div class="-z-10 absolute inset-0 bg-[url('/images/gorilla.png')] bg-fixed bg-cover"></div>
+    <div class="-z-10 absolute inset-0 opacity-80" style="background: linear-gradient(290deg, #000000 23%, #000000 100%);"></div>
+    <div class="z-10">
+        <ContainerSmall>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="flex flex-col gap-8 max-w-[500px]">
+                    <HeadingTwo5XlSemoboldRed>{ data.title }<span class="text-white font-bold">{ data.title_bold }</span></HeadingTwo5XlSemoboldRed>
+                    <ParagraphBaseLeadingWhite>{ data.description }</ParagraphBaseLeadingWhite>
+                    <Link href={ data.button_link }>
+                        <ButtonRedAnimated>{ data.button_text }</ButtonRedAnimated>
+                    </Link>
+                </div>
+                <div class="flex items-center justify-center">
+                    <ServicesAccordian accordionData={ accordionData } client:load />
+                </div>
+            </div>
+        </ContainerSmall>
+    </div> 
+</section>
