@@ -8,6 +8,7 @@ import TestimonialCard from "@/components/home/testimonials/card/index.astro"
 
 // IMPORT ASTRO ATOMS
 import ButtonAnimated from "@/atoms/atoms-shiva/buttons/red-animated/index.astro"
+import Link from "@/atoms/links/index.astro"
 import HeadingThreeXlMediumCenterWhite from "@/atoms/atoms-shiva/headings/three/xl/medium/center/white/index.astro"
 import HeadingTwo4XlBoldCenterWhite from "@/atoms/atoms-shiva/headings/two/4xl/bold/center/white/index.astro"
 import LineWhite from "@/atoms/atoms-shiva/line/white/index.astro"
@@ -15,6 +16,8 @@ import LineWhite from "@/atoms/atoms-shiva/line/white/index.astro"
 // HARDCODED DATA
 const data = {
 
+    button_link: "/",
+    button_text: "See More Testimonials",
     subtitle: "We think our clients say it best.",
     title: "Testimonials",
 
@@ -89,6 +92,11 @@ const card_data = [
 
                     }
                 </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <Link href={ data.button_link }>
+                    <ButtonAnimated>{ data.button_text }</ButtonAnimated>
+                </Link>
             </div>
         </div>
     </ContainerSmall>
