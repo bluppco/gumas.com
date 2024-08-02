@@ -1,0 +1,74 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import ChallengerBrandCard from "@/components/home/challenger-brand-tips/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwo4XlBoldCenterWhite from "@/atoms/atoms-shiva/headings/two/4xl/bold/center/white/index.astro"
+import LineWhite from "@/atoms/atoms-shiva/line/white/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    subtitle: "",
+    title: "Challenger Brand Tips",
+
+}
+const card_data = [
+
+    {
+        description: "Creating a compelling brand identity is pivotal for any business aiming to carve out its space in a crowded marketplace. However, for challenger brands like",
+        link_text: "READ MORE »",
+        link: "/",
+        source: "/images/strong-brand-identity.jpg",
+        title: "Building a Strong Brand Identity on a Budget: Cost-Effective Strategies for Success",
+    },
+    {
+        description: "In today’s dynamic marketing landscape, businesses aim to captivate their audience uniquely and memorably. While modern digital marketing revolutionizes target market engagement with its broad",
+        link_text: "READ MORE »",
+        link: "/",
+        source: "/images/direct-mail-marketing.jpg",
+        title: "Direct Mail Marketing: Enhancing Your Strategy with Digital Integration",
+    },
+    {
+        description: "Dominated by gorilla banking institutions, credit unions emerge as beacons of community-focused banking in the financial services landscape. Embodying challenger brand spirit,  credit unions differ",
+        link_text: "READ MORE »",
+        link: "/",
+        source: "/images/credit-union-marketing.jpg",
+        title: "Credit Union Marketing: Embracing the Challenger Brand Mentality",
+    },
+
+]
+
+---
+
+<section class="bg-black py-16">
+    <ContainerSmall>
+        <div class="space-y-10">
+            <div class="flex flex-col items-center justify-center gap-4">
+                <HeadingTwo4XlBoldCenterWhite>{ data.title }</HeadingTwo4XlBoldCenterWhite>
+                <LineWhite/>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {
+
+                    card_data.map( ( data ) => (
+
+                        <ChallengerBrandCard
+                            description={ data.description }
+                            link_text={ data.link_text }
+                            link={ data.link }
+                            source={ data.source }
+                            title={ data.title }
+                        />
+
+                    ))
+
+                }
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
