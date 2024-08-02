@@ -54,7 +54,7 @@ module.exports = {
 			},
 			colors: {
 
-				"custom-gray": "#23262a",
+				"gray-dark": "#23262a",
 				"red-light": "#f60000",
 				"red-dark": "#a70000",
 
