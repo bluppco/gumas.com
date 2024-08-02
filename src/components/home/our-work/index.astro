@@ -3,12 +3,12 @@
 // IMPORT ASTRO ATOMS
 import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
 import HeadingFourLargeBoldWhite from "@/atoms/atoms-nandini/headings/four/lg/bold/white/index.astro"
-import HeadingThree4xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/three/4xl/bold/center/white/index.astro"
+import HeadingThree4xlBoldCenterUppercaseWhite from "@/atoms/atoms-nandini/headings/three/4xl/bold/center/uppercase/white/index.astro"
 import HeadingTwo4xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/two/4xl/bold/center/white/index.astro"
 import Link from "@/atoms/links/index.astro"
-import ParagraphLargeCapitalizeCenterWhite from "@/atoms/atoms-nandini/paragraphs/lg/capitalize/center/white/index.astro"
+import ParagraphLargePoppinsCenterWhite from "@/atoms/atoms-nandini/paragraphs/lg/poppins/center/white/index.astro"
 import ParagraphLargeCenterWhite from "@/atoms/atoms-nandini/paragraphs/lg/center/white/index.astro"
-import ParagraphSmallExtralightWhite from "@/atoms/atoms-nandini/paragraphs/sm/extralight/white/index.astro"
+import ParagraphSmallExtralightUppercaseWhite from "@/atoms/atoms-nandini/paragraphs/sm/extralight/uppercase/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 
 // WORK ARRAY1
@@ -105,16 +105,16 @@ const data = {
 
                         <Link aria_label={ item.link } href={ item.link }>
                             <div class="relative group">
-                                <div class="h-full aspect-square">
+                                <div class="w-full aspect-square">
                                     <PictureInternal 
                                         alternative_text={ item.alternative_text }
                                         source={ item.source }
                                     />
                                 </div>
                                 <div class="absolute bg-black inset-0 opacity-30"></div>
-                                <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                                <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20 capitalize">
                                     <HeadingFourLargeBoldWhite>{ item.title }</HeadingFourLargeBoldWhite>
-                                    <ParagraphSmallExtralightWhite>{ item.description }</ParagraphSmallExtralightWhite>
+                                    <ParagraphSmallExtralightUppercaseWhite>{ item.description }</ParagraphSmallExtralightUppercaseWhite>
                                 </div>
                             </div>
                         </Link>
@@ -129,16 +129,16 @@ const data = {
             <div class="md:grid md:grid-cols-3 md:my-10 md:mx-5 lg:mx-0 lg:my-0">
                 <Link aria_label={ data.image1_link } href={ data.image1_link }>
                     <div class="relative group">
-                        <div class="h-full aspect-square">
+                        <div class="w-full aspect-square">
                             <PictureInternal 
                                 alternative_text={ data.alternative_text }
                                 source={ data.image1_source }
                             />
                         </div>
                         <div class="absolute bg-black inset-0 opacity-30"></div>
-                        <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                        <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20 capitalize">
                             <HeadingFourLargeBoldWhite>{ data.image1_title }</HeadingFourLargeBoldWhite>
-                            <ParagraphSmallExtralightWhite>{ data.image_description }</ParagraphSmallExtralightWhite>
+                            <ParagraphSmallExtralightUppercaseWhite>{ data.image_description }</ParagraphSmallExtralightUppercaseWhite>
                         </div>
                     </div>
                 </Link>
@@ -146,8 +146,8 @@ const data = {
                 <div class="bg-red-700 py-40 md:py-0">
                     <div class="mt-20 md:mt-28 lg:mt-36 xl:mt-44 2xl:mt-60 group mx-5 md:mx-0">
                         <div class="group-hover:hidden">
-                            <HeadingThree4xlBoldCenterWhite>{ data.subtitle }</HeadingThree4xlBoldCenterWhite>
-                            <ParagraphLargeCapitalizeCenterWhite>{ data.subtitle_description }</ParagraphLargeCapitalizeCenterWhite>
+                            <HeadingThree4xlBoldCenterUppercaseWhite>{ data.subtitle }</HeadingThree4xlBoldCenterUppercaseWhite>
+                            <ParagraphLargePoppinsCenterWhite>{ data.subtitle_description }</ParagraphLargePoppinsCenterWhite>
                         </div>
                         <div class="ml-20">
                             <Link aria_label={ data.button_link } href={ data.button_link }>
@@ -159,16 +159,16 @@ const data = {
 
                 <Link aria_label={ data.image2_link } href={ data.image2_link }>
                     <div class="relative group">
-                        <div class="h-full aspect-square">
+                        <div class="w-full aspect-square">
                             <PictureInternal 
                                 alternative_text={ data.alternative_text }
                                 source={ data.image2_source }
                             />
                         </div>
                         <div class="absolute bg-black inset-0 opacity-30"></div>
-                        <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                        <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20 capitalize">
                             <HeadingFourLargeBoldWhite>{ data.image2_title }</HeadingFourLargeBoldWhite>
-                            <ParagraphSmallExtralightWhite>{ data.image_description }</ParagraphSmallExtralightWhite>
+                            <ParagraphSmallExtralightUppercaseWhite>{ data.image_description }</ParagraphSmallExtralightUppercaseWhite>
                         </div>
                     </div>
                 </Link>
@@ -183,16 +183,16 @@ const data = {
 
                         <Link aria_label={ item.link } href={ item.link }>
                             <div class="relative group">
-                                <div class="h-full aspect-square">
+                                <div class="w-full aspect-square">
                                     <PictureInternal 
                                         alternative_text={ item.alternative_text }
                                         source={ item.source }
                                     />
                                 </div>
                                 <div class="absolute bg-black inset-0 opacity-30"></div>
-                                <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20">
+                                <div class="hidden group-hover:block animate-in slide-in-from-left transition delay-200 duration-500 absolute bottom-16 left-20 capitalize">
                                     <HeadingFourLargeBoldWhite>{ item.title }</HeadingFourLargeBoldWhite>
-                                    <ParagraphSmallExtralightWhite>{ item.description }</ParagraphSmallExtralightWhite>
+                                    <ParagraphSmallExtralightUppercaseWhite>{ item.description }</ParagraphSmallExtralightUppercaseWhite>
                                 </div>
                             </div>
                         </Link>
