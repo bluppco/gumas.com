@@ -25,16 +25,21 @@ footer_data = footer_data.map( footer => {
 })
 
 // GET MARKDOWN
+import { frontmatter as copyright } from "@/content/footer-extra/copyright.md"
 import { frontmatter as logo } from "@/content/footer-extra/logo.md"
 
+const copyrighttext = copyright.copyright
 const description = logo.description
 const source = logo.logo
 
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
+import ContainerSmall from "@/layouts/container-small/index.astro"
 
 // IMPORT ASRTO COMPONENTS
 import Form from "@/components/common/footer/form/index.astro"
+
+// IMPORT JSX COMPONENTS
+import SocialLinks from "@/components/common/footer/social-links/jsx/index"
 
 // IMPORT ASTRO ATOMS
 import HeadingFourBaseWhite from "@/atoms/atoms-shiva/headings/four/base/medium/white/index.astro"
@@ -44,7 +49,7 @@ import PictureContain from "@/atoms/picture/internal/contain/index.astro"
 
 ---
 <footer class="bg-gray-dark py-20">
-    <Container>
+    <ContainerSmall>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div class="space-y-6">
                 <div class="w-32">
@@ -85,5 +90,13 @@ import PictureContain from "@/atoms/picture/internal/contain/index.astro"
             </ul>
             <Form/>
         </div>
-    </Container>
+    </ContainerSmall>
 </footer>
+<div class="bg-gray-900 py-4">
+    <ContainerSmall>
+        <div class="flex justify-between">
+            <ParagraphSmGray>{ copyrighttext }</ParagraphSmGray>
+            <SocialLinks/>
+        </div>   
+    </ContainerSmall>
+</div>
