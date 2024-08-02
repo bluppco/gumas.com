@@ -1,0 +1,148 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeXlMediumCenterWhite from "@/atoms/atoms-shiva/headings/three/xl/medium/center/white/index.astro"
+import HeadingTwo4XlBoldCenterWhite from "@/atoms/atoms-shiva/headings/two/4xl/bold/center/white/index.astro"
+import LineWhite from "@/atoms/atoms-shiva/line/white/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    subtitle: "Building powerful brands since 1984",
+    title: "Our Clients",
+
+}
+const logos = [
+
+    {
+        alternative_text: "",
+        source: "/logos/corovan.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/bashof.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/giants-community.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/foundation.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/lira-reversed.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/monaghan.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/sandisk.png",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/keypoint.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/county-federal.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/mirancho.png",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/varian.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/omni-pathology.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/hp.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/yonex.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/mattel.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/health.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/neilmed.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/unitus.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/rosendin.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/netgear.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/jei.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/allstar.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/linear.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/corian.webp",
+    },
+
+]
+
+---
+
+<section class="bg-gray-dark py-16">
+    <ContainerSmall>
+        <div class="space-y-8">
+            <div class="flex flex-col items-center justify-center gap-4">
+                <HeadingTwo4XlBoldCenterWhite>{ data.title }</HeadingTwo4XlBoldCenterWhite>
+                <LineWhite/>
+                <HeadingThreeXlMediumCenterWhite>{ data.subtitle }</HeadingThreeXlMediumCenterWhite>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-8 gap-6">
+                {
+
+                    logos.map( ( logo ) => (
+
+                        <div class="w-full aspect-video">
+                            <PictureContain
+                                alternative_text={ logo.alternative_text }
+                                source={ logo.source }
+                            />
+                        </div>    
+
+                    ))
+
+                }
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
