@@ -1,0 +1,63 @@
+---
+
+// IMPORT ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORT HEADER COLLECTION
+let header = await getCollection('header')
+header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER COLLECTION
+let headerhover = await getCollection('header-hover')
+headerhover = headerhover.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import NavigationBar from "@/components/common/header/navigation-bar/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+
+// GET ASTRO PROPS
+const {
+    
+    arrow_link,
+    gumasicon_link,
+    services_link,
+    services_text,
+
+} = Astro.props
+---
+<header class="relative lg:hidden bg-gray-400 h-32 pt-8">
+    <Container>
+        <div class="flex justify-between items-center">
+            <div class="h-8 aspect-[9/2]">
+                <PictureInternal
+                    alternative_text="",
+                    source={ gumasicon_link }
+                />
+            </div>
+            <div class="size-8 cursor-pointer" onclick="dropdown()">
+                <svg viewBox="0 0 512 512" class="fill-white hover:fill-red-800" xmlns="http://www.w3.org/2000/svg"><title/><g data-name="1" id="_1"><path d="M441.13,166.52h-372a15,15,0,1,1,0-30h372a15,15,0,0,1,0,30Z"/><path d="M441.13,279.72h-372a15,15,0,1,1,0-30h372a15,15,0,0,1,0,30Z"/><path d="M441.13,392.92h-372a15,15,0,1,1,0-30h372a15,15,0,0,1,0,30Z"/></g></svg>
+                <div id="submenu" class="absolute mt-96 bg-black px-80">
+                    <NavigationBar data={ header }
+                        data2={ headerhover }
+                        arrow_link={ arrow_link }
+                        services_text={ services_text }
+                        services_link={ services_link }
+                    />
+                </div>
+            </div>
+        </div>
+    </Container>
+</header>
+
+<script type="text/javascript">
+    function dropdown(){
+        document.querySelector('#submenu').classList.toggle('invisible');
+    }
+    dropdown()
+</script>
