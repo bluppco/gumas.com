@@ -1,0 +1,94 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// IMAGE ARRAY
+const images = [
+
+    {
+        alternative_text:"Certificate-image",
+        source:"/images/certificate-1.webp",
+    },
+    {
+        alternative_text:"Certificate-image",
+        source:"/images/certificate-2.webp",
+    },
+    {
+        alternative_text:"Certificate-image",
+        source:"/images/certificate-3.webp",
+    },
+    {
+        alternative_text:"Certificate-image",
+        source:"/images/certificate-4.webp",
+    },
+
+]
+
+---
+<section class="py-5 bg-gray-800">
+    <Container>
+        <div class="space-y-8 pl-20 sm:pl-40 md:flex justify-between lg:justify-center lg:gap-32 items-center">
+
+            {
+
+                images.map( ( item , index ) => {
+
+                    if( index == 0){
+
+                        return (
+
+                            <div>
+                                <div class="w-3/4 aspect-[4/1] mt-8">
+                                    <PictureInternal
+                                        alternative_text={ item.alternative_text }
+                                        source={ item.source }
+                                    />
+                                </div>
+                            </div>
+
+                    )
+
+                    } else if ( index == 1) {
+
+                        return (
+
+                            <div>
+                                <div class="w-3/4 aspect-[4/1]">
+                                    <PictureInternal
+                                        alternative_text={ item.alternative_text }
+                                        source={ item.source }
+                                    />
+                                </div>
+                            </div>
+
+                    )
+
+
+                    }
+                    
+                    else {
+
+                        return (
+
+                            <div>
+                                <div class="w-3/4 aspect-[5/2]">
+                                    <PictureInternal
+                                        alternative_text={ item.alternative_text }
+                                        source={ item.source }
+                                    />
+                                </div>
+                            </div>
+                            
+                        )
+
+                    }
+    
+                })
+            }
+        </div>
+    </Container>
+</section>

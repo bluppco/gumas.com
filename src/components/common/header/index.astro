@@ -1,13 +1,72 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORT HEADER COLLECTION
+let header = await getCollection('header')
+header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER COLLECTION
+let headerhover = await getCollection('header-hover')
+headerhover = headerhover.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORT ASTRO COMPONENTS
+import MobileHeader from "@/components/common/header/mobile-header/index.astro"
+import NavigationBar from "@/components/common/header/navigation-bar/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as arrowicon } from "@/content/header-icon/arrow.md"
+import { frontmatter as button } from "@/content/header-button/button.md"
+import { frontmatter as gumas } from "@/content/header-icon/gumas.md"
+import { frontmatter as services } from "@/content/header/services.md"
+
+// HARDCODED DATA
+const arrow_link = arrowicon.link
+const button_text = button.title
+const button_link = button.link
+const gumasicon_link  = gumas.link
+const services_link = services.link
+const services_text = services.title
+
 ---
-<header class="bg-blue-600 h-12">
+<header class="bg-black h-32 hidden lg:block fixed z-10 w-full">
     <Container>
-        <section class="flex items-center h-full">
-            <p class="text-white">I am header</p>
-        </section>
+        <div class="flex justify-between items-center">
+            <div class="h-8 aspect-[9/2]">
+                <PictureInternal
+                    alternative_text="",
+                    source={ gumasicon_link }
+                />
+            </div>
+            <div>
+                <NavigationBar data={ header }
+                    data2={ headerhover }
+                    arrow_link={ arrow_link }
+                    services_text={ services_text }
+                    services_link={ services_link }
+                />
+            </div>
+            <div>
+                <Link aria_label={ button_link } href={ button_link }>
+                    <ButtonRed>{ button_text }</ButtonRed>
+                </Link>
+            </div>
+        </div>
     </Container>
 </header>
+
+<MobileHeader
+    arrow_link={ arrow_link }
+    gumasicon_link = { gumasicon_link }
+    services_text={ services_text }
+    services_link={ services_link }
+/>
