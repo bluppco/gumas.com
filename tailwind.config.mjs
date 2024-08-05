@@ -38,15 +38,25 @@ module.exports = {
           			to: { height: "0" },
 
 				},
+				"button-wobble": {
+
+					"0%, 100%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-5px)" },
+
+				},
       		},
       		animation: {
 
 				"accordion-down": "accordion-down 0.2s ease-out",
         		"accordion-up": "accordion-up 0.2s ease-out",
+				"button-wobble": "button-wobble 1.5s infinite",
 
 			},
 			colors: {
 
+				"gray-dark": "#23262a",
+				"red-light": "#f60000",
+				"red-dark": "#a70000",
 
 			},
 			fontFamily: {

@@ -1,0 +1,37 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingFourLgSemiboldWhite from "@/atoms/atoms-shiva/headings/four/lg/semibold/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphSmGray from "@/atoms/atoms-shiva/paragraphs/sm/gray/index.astro"
+import ParagraphSmRed from "@/atoms/atoms-shiva/paragraphs/sm/red/index.astro"
+import PictureCover from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    description,
+    link_text,
+    link,
+    source,
+    title,
+
+} = Astro.props
+
+---
+
+<Link href={ link }>
+    <div class="flex flex-col">
+        <div class="w-full aspect-video overflow-hidden">
+            <PictureCover
+                alternative_text=""
+                source={ source }
+            />
+        </div>
+        <div class="flex flex-col gap-4 bg-gray-dark p-6">
+            <HeadingFourLgSemiboldWhite>{ title }</HeadingFourLgSemiboldWhite>
+            <ParagraphSmGray>{ description }</ParagraphSmGray>
+            <ParagraphSmRed>{ link_text }</ParagraphSmRed>
+        </div>
+    </div>
+</Link>
