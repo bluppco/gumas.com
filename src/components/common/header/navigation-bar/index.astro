@@ -1,0 +1,73 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ListItemUppercaseWhite from "@/atoms/atoms-nandini/list-items/uppercase/white/index.astro"
+import ListItemUppercaseWhiteHoverRed from "@/atoms/atoms-nandini/list-items/uppercase/white/hover-red/index.astro"
+import ListItemCapitalizeWhite from "@/atoms/atoms-nandini/list-items/capitalize/white/index.astro"
+
+// GET ASTRO PROPS
+const { data , data2, services_text , services_link } = Astro.props
+
+---
+<nav>
+    <ul class="flex flex-wrap justify-center gap-8 items-center">
+        <div class="group">
+            <ListItemUppercaseWhite>
+                <div class="mt-6 mb-6">
+                    <Link
+                        aria-label={ "explore " + services_link }
+                        href={ services_link }
+                    >
+                    { services_text }<svg class="inline-block size-3 mb-1 ml-2 rotate-180 transition delay-150 duration-300 fill-white group-hover:fill-red-800" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title/><path d="M464,464H48a16,16,0,0,1-14.07-23.62l208-384a16,16,0,0,1,28.14,0l208,384A16,16,0,0,1,464,464Z"/></svg>
+                </Link>  
+                </div>
+            </ListItemUppercaseWhite>
+            <ul class="bg-black space-y-10 py-5 px-10 hidden group-hover:block fixed">
+                {
+
+                    data2.map( ( item ) =>{
+
+                        return (
+
+                            <ListItemCapitalizeWhite>
+                                <Link aria-label={ "explore " + item.data.title }
+                                    href={ item.data.link }
+                                >
+                                        { item.data.title } 
+                                </Link>
+                            </ListItemCapitalizeWhite>
+
+                        )
+
+
+                    })
+
+                }
+            </ul>
+            
+        </div>
+        {
+
+            data.map( ( item , index ) => {
+
+                if( index !== 0 ){
+
+                    return (
+                    
+                        <ListItemUppercaseWhiteHoverRed>
+                            <Link
+                                aria-label={ "explore " + item.data.title }
+                                href={ item.data.link }
+                            >
+                                { item.data.title } 
+                            </Link>
+                        </ListItemUppercaseWhiteHoverRed>
+
+                    )
+
+                }
+            })
+        }
+    </ul>
+</nav>
