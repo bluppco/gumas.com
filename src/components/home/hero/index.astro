@@ -1,0 +1,114 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
+import Link from "@/atoms/links/index.astro"
+import HeadingThree2xlSemiboldCenterWhite from "@/atoms/atoms-nandini/headings/three/2xl/semibold/center/white/index.astro"
+import HeadingTwo2xlBoldCapitalizeCenterWhite from "@/atoms/atoms-nandini/headings/two/2xl/bold/capitalize/center/white/index.astro"
+import HeadingTwo3xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/two/3xl/bold/center/white/index.astro"
+import ParagraphBoldWhite from "@/atoms/atoms-nandini/paragraphs/bold/white/index.astro"
+import ParagraphExtraLargeCenterWhite from "@/atoms/atoms-nandini/paragraphs/xl/center/white/index.astro"
+import ParagrahLargeCapitalizeWhite from "@/atoms/atoms-nandini/paragraphs/lg/capitalize/white/index.astro"
+import ParagraphLargeSemiboldCenterWhite from "@/atoms/atoms-nandini/paragraphs/lg/semibold/center/white/index.astro"
+import ParagraphRoboto from "@/atoms/atoms-nandini/paragraphs/roboto/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// INPUT ARRAY
+const input = [
+
+    {
+        name:"your name"
+    },
+    {
+        name:"your email"
+    },
+    {
+        name:"phone"
+    },
+    {
+        name:"company name"
+    },
+
+]
+
+// HARDCODED DATA
+const data ={ 
+
+    button_text:"Submit",
+    description1:"Strategic Branding, Advertising and Digital Marketing Services",
+    description2:"Gumas is an award-winning, full service San Francisco advertising agency and the country’s foremost authority on Challenger Brand Marketing®. We help you take on your industry gorillas to quickly generate the greatest results from your marketing investment.",
+    description3:"Want To Take On Your Industry Gorillas And Win But Don’t Know Where To Start? It’s Time To Talk To The Challenger Brand Marketing® Experts. Enter Your Information Below To Start The Conversation.",
+    description4:"How did you find Gumas?",
+    sub_title:"Who is Gumas Advertising?",
+    sub_title2:"* indicates required fields",
+    title:"Champion of the Challenger Brand",
+    title2:"Request A Consultation",
+
+}
+
+---
+<section>
+    <div class="relative">
+        <div class="size-screen">
+            <PictureInternal 
+                alternative_text=""
+                source="/images/our-work-3.webp"
+            />
+        </div>
+        <div class="absolute bg-black opacity-55 inset-0"></div>
+    </div> 
+    <Container>
+        <div class="space-y-5 md:space-y-0 md:grid md:grid-cols-2 absolute inset-0 top-10 md:top-52">
+            <div class="mt-20 space-y-8 mx-10">
+                <ParagraphLargeSemiboldCenterWhite>{ data.description1 }</ParagraphLargeSemiboldCenterWhite>
+                <HeadingTwo3xlBoldCenterWhite>{ data.title }</HeadingTwo3xlBoldCenterWhite>
+                <ParagraphExtraLargeCenterWhite>{ data.description2 }</ParagraphExtraLargeCenterWhite>
+                <div>
+                    <HeadingThree2xlSemiboldCenterWhite>{ data.sub_title }</HeadingThree2xlSemiboldCenterWhite>
+                    <div class="size-28 my-16 mx-40 xl:mx-60">
+                        <Link href="/#">
+                            <PictureInternal 
+                                alternative_text="Icon"
+                                source="/icons/player.svg"
+                            />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-black opacity-80 p-8 mx-10 space-y-6">
+                <HeadingTwo2xlBoldCapitalizeCenterWhite>{ data.title2 }</HeadingTwo2xlBoldCapitalizeCenterWhite>
+                <ParagrahLargeCapitalizeWhite>{ data.description3 }</ParagrahLargeCapitalizeWhite>
+                <ParagraphBoldWhite>{ data.sub_title2 }</ParagraphBoldWhite>
+                <div class="space-y-5">
+                    {  
+
+                        input.map( ( item ) =>{
+
+                            return ( 
+
+                            <input type="text" class="w-full outline-none capitalize rounded-sm py-2 pl-4" placeholder={ item.name }/>
+
+                            )
+
+                        })
+
+                    }
+                    <div class="bg-white w-full py-2 pl-4 flex justify-between">
+                        <ParagraphRoboto>{ data.description4 }</ParagraphRoboto>
+                        <span class="inline-block size-5">
+                            <PictureInternal 
+                                alternative_text=""
+                                source="/icons/down-arrow.svg"
+                            />
+                        </span>
+                    </div>
+                    <input type="text" class="w-full outline-none capitalize rounded-sm pt-2 pb-20 pl-4" placeholder="comments" />
+                </div>
+                <ButtonRed>{ data.button_text }</ButtonRed>
+            </div>
+        </div>
+    </Container>
+</section>
