@@ -1,0 +1,153 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import TestimonialCard from "@/components/home/testimonials/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonAnimated from "@/atoms/atoms-shiva/buttons/red-animated/index.astro"
+import HeadingThreeXlMediumCenterWhite from "@/atoms/atoms-shiva/headings/three/xl/medium/center/white/index.astro"
+import HeadingTwo4XlBoldCenterWhite from "@/atoms/atoms-shiva/headings/two/4xl/bold/center/white/index.astro"
+import LineWhite from "@/atoms/atoms-shiva/line/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_link: "/",
+    button_text: "See More Testimonials",
+    subtitle: "We think our clients say it best.",
+    title: "Testimonials",
+
+}
+const card_data = [
+
+    {
+        review: "Gumas [provides] practical strategies that will make an immediate impact on your organization. I trust them.",
+        user_name: "Art Agnos",
+        user_title: "Former Mayor, San Francisco, CA",
+        user: "/logos/art-agnos.jpg",
+    },
+    {
+        review: "After engaging with Gumas Marketing, it was evident we could not only continue with a small internal team to coordinate activities but also expand capabilities to do more (SEO, PR, etc.) - without increasing our costs.  I highly recommend Gumas Marketing if you're looking to expand your Marketing capabilities.",
+        user_name: "Brian Dorcy",
+        user_title: "President & CEO, Excite Credit Union",
+        user: "/logos/excite.webp",
+    },
+    {
+        review: "SUPER TEAM! The best marketing Team to help companies find and grow a Brand! Known and worked with them for over 15 years. The Best of the Best!",
+        user_name: "TIM O'NEILL",
+        user_title: "PRESIDENT, NETWORK DATA",
+        user: "/logos/gumas-hp.jpg",
+    },
+    {
+        review: "Gumas is amazing to work with. They quickly recognized the issues and have implemented new strategies to help us surpass our objectives. They constantly go the extra mile for us to make sure everything is done successfully.",
+        user_name: "Judy Hoffman",
+        user_title: "CMO, Sandisk",
+        user: "/logos/gumas-sandisk.jpg",
+    },
+    {
+        review: "Gumas has been able to help us reach brand values that align our business goals with what our audience wants. A great partner if you are looking to expand your company!",
+        user_name: "June Park",
+        user_title: "Executive Vice President, JEI Learning Center",
+        user: "/logos/gumas-jei.jpg",
+    },
+    {
+        review: "An excellent team guiding us through the maze of what is considered Branding and Social Media.  Thanks Team Gumas!",
+        user_name: "Satya Pradhuman",
+        user_title: "Director of Research, Cirrus Research",
+        user: "/logos/cirrus.webp",
+    },
+
+]
+
+---
+
+<section class="py-16 bg-black">
+    <ContainerSmall>
+        <div class="flex flex-col gap-8">
+            <div class="flex flex-col items-center justify-center gap-4">
+                <HeadingTwo4XlBoldCenterWhite>{ data.title }</HeadingTwo4XlBoldCenterWhite>
+                <LineWhite/>
+                <HeadingThreeXlMediumCenterWhite>{ data.subtitle }</HeadingThreeXlMediumCenterWhite>
+            </div>
+            <div class="testimonials-swiper-container overflow-hidden">
+                <div class="swiper-wrapper">
+                    {
+
+                        card_data.map( ( data ) => (
+
+                            <div class="swiper-slide">
+                                <TestimonialCard
+                                    review={ data.review }
+                                    user_name={ data.user_name }
+                                    user_title={ data.user_title }
+                                    user={ data.user }
+                                />
+                            </div>
+
+                        ))
+
+                    }
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <Link href={ data.button_link }>
+                    <ButtonAnimated>{ data.button_text }</ButtonAnimated>
+                </Link>
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
+
+<script>
+    // IMPORT SWIPER JS AND ITS MODULES
+    import Swiper from 'swiper/bundle'
+    import 'swiper/css/bundle'
+
+    // INITIALISE SWIPER
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const swiper = new Swiper('.testimonials-swiper-container', {
+
+            // SLIDES TO SHOW IN MOBILE VIEW
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            autoplay: {
+
+                delay: 3000,
+
+            },
+            breakpoints: {
+
+                // SLIDES TO SHOW OVER SM WINDOW VIEW
+                640: {
+
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+    
+                },
+                // SLIDES TO SHOW OVER MEDIUM WINDOW VIEW
+                750: {
+
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+
+                },
+                // SLIDES TO SHOW OVER LARGE WINDOW VIEW
+                1024: {
+
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+
+                },
+
+            },
+            
+        })
+
+    })
+</script>

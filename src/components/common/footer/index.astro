@@ -1,11 +1,102 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT FOOTER COLLECTION
+let footer_data = await getCollection("footer")
+footer_data = footer_data.sort( ( a, b ) => a.data.order - b.data.order )
+
+// FILTER THE ITEMS IN EACH FOOTER DATA FILES BY LIVE
+footer_data = footer_data.map( footer => {
+
+    return {
+
+        ...footer,
+        data: {
+
+            ...footer.data,
+            items: footer.data.items.filter(item => item.live).sort((a, b) => a.order - b.order)
+
+        }
+
+    }
+
+})
+
+// GET MARKDOWN
+import { frontmatter as copyright } from "@/content/footer-extra/copyright.md"
+import { frontmatter as logo } from "@/content/footer-extra/logo.md"
+
+const copyrighttext = copyright.copyright
+const description = logo.description
+const source = logo.logo
+
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASRTO COMPONENTS
+import Form from "@/components/common/footer/form/index.astro"
+
+// IMPORT JSX COMPONENTS
+import SocialLinks from "@/components/common/footer/social-links/jsx/index"
+
+// IMPORT ASTRO ATOMS
+import HeadingFourBaseWhite from "@/atoms/atoms-shiva/headings/four/base/medium/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphSmGray from "@/atoms/atoms-shiva/paragraphs/sm/gray/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
 
 ---
-<footer class="bg-black py-20">
-    <Container>
-        <p class="text-white">I am footer</p>
-    </Container>
+<footer class="bg-gray-dark py-20">
+    <ContainerSmall>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="space-y-6">
+                <div class="w-32 aspect-[8/2]">
+                    <PictureContain
+                        alternative_text=""
+                        source={ source }
+                    />
+                </div>
+                <ParagraphSmGray>{ description }</ParagraphSmGray>
+            </div>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {
+
+                    footer_data.map( ( item ) => {
+
+                        return (
+
+                            <li class="flex flex-col gap-3">
+                                <HeadingFourBaseWhite>{ item.data.title }</HeadingFourBaseWhite>
+                                {
+
+                                    item.data.items.map( ( sub_item ) => (
+
+                                        <Link href={ sub_item.link }>
+                                            <ParagraphSmGray>{ sub_item.title }</ParagraphSmGray>
+                                        </Link>
+
+                                    ))
+
+                                }
+                            </li>
+
+                        )
+
+                    })
+
+                }
+            </ul>
+            <Form/>
+        </div>
+    </ContainerSmall>
 </footer>
+<div class="bg-gray-900 py-4">
+    <ContainerSmall>
+        <div class="flex flex-col lg:flex-row justify-between">
+            <ParagraphSmGray>{ copyrighttext }</ParagraphSmGray>
+            <SocialLinks/>
+        </div>   
+    </ContainerSmall>
+</div>

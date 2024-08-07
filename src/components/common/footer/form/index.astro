@@ -1,0 +1,27 @@
+---
+
+// GET MARKDOWN
+import { frontmatter as form } from "@/content/footer-extra/form.md"
+
+const form_button_link = form.button_link
+const form_button_text = form.button_text
+const form_title = form.title
+
+// IMPORT ASTRO COMPONENTS
+import Input from "@/components/common/footer/form/input/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonHoverWhite from "@/atoms/atoms-shiva/buttons/hover-white/index.astro"
+import HeadingFourBaseWhite from "@/atoms/atoms-shiva/headings/four/base/medium/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+---
+
+<form class="flex flex-col gap-3">
+    <HeadingFourBaseWhite>{ form_title }</HeadingFourBaseWhite>
+    <Input placeholder="Name" />
+    <Input placeholder="Your Email" />
+    <Link href={ form_button_link }>
+        <ButtonHoverWhite>{ form_button_text }</ButtonHoverWhite>
+    </Link>
+</form>
