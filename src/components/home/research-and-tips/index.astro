@@ -1,0 +1,135 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
+import ButtonTransparentSmall from "@/atoms/atoms-nandini/buttons/transparent/small/index.astro"
+import HeadingThreeExtralargexlSemiboldCenterWhite from "@/atoms/atoms-nandini/headings/three/xl/semibold/center/white/index.astro"
+import HeadingThree4xlSemiboldCenterWhite from "@/atoms/atoms-nandini/headings/three/4xl/semibold/center/white/index.astro"
+import HeadingTwo3xlSemiBoldCenterWhite from "@/atoms/atoms-nandini/headings/two/3xl/semibold/center/white/index.astro"
+import HeadingTwo4xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/two/4xl/bold/center/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphExtrasmallCenterWhite from "@/atoms/atoms-nandini/paragraphs/xs/center/white/index.astro"
+import ParagraphsmallWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_text:"Send",
+    description1:"Proven and easy-to-implement marketing strategies to help Challenger Brands take on their industry gorillas…and win!",
+    description2:"I'm not a robot",
+    description3:"Marketing Smart Ebook is Absolutely Free",
+    image_button_text:"Learn More",
+    link1:"/blog/",
+    link2:"/challenger-brand-marketing-book/",
+    source1:"/images/research-and-tips-1.webp",
+    source2:"/images/research-and-tips-2.webp",
+    sub_title1:"Challenger Brand Tips",
+    sub_title2:"Brand Marketing Newsletter",
+    sub_title3:"Read our book",
+    title:"Research & Tips",
+    title1:"Joining Our Challenger"
+
+}
+
+---
+<section class="py-20 bg-black">
+    <div class="space-y-16 md:mx-8">
+        <div>   
+            <HeadingTwo4xlBoldCenterWhite>{ data.title }</HeadingTwo4xlBoldCenterWhite>
+            <div class="flex justify-center items-center">
+                <div class="border-b-4 flex justify-center border-white mt-4 w-16"></div>
+            </div>
+        </div>
+        <div class="space-y-3 md:grid md:grid-cols-3 gap-5">
+            <div class="group">
+                <div class="relative h-full aspect-auto group-hover:hidden">
+                    <PictureInternal
+                        alternative_text={ data.title }
+                        source={ data.source1 }
+                    />
+                    <div class="absolute bottom-10 left-5 right-5">
+                        <div class="space-y-6">
+                            <HeadingThree4xlSemiboldCenterWhite>{ data.sub_title1 }</HeadingThree4xlSemiboldCenterWhite>
+                            <ParagraphExtrasmallCenterWhite>{ data.description1 }</ParagraphExtrasmallCenterWhite>
+                        </div>
+                    </div>
+                </div>
+                <Link aria_label={ data.title } href={ data.link1 }>
+                    <div class="bg-red-dark h-full relative hidden group-hover:block group-hover:animate-spinner-grow">
+                        <div class="absolute bottom-20 top-20 left-5 right-5">
+                            <div class="space-y-6">
+                                <HeadingThreeExtralargexlSemiboldCenterWhite>{ data.sub_title1 }</HeadingThreeExtralargexlSemiboldCenterWhite>
+                                <ParagraphExtrasmallCenterWhite>{ data.description1 }</ParagraphExtrasmallCenterWhite>
+                                <div class="flex justify-center">
+                                    <ButtonTransparentSmall>{ data.image_button_text }</ButtonTransparentSmall>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Link>
+            </div>
+            <div class="bg-[#1A1A1A] px-5 py-8">
+                <div class="space-y-8">
+                    <div>
+                        <HeadingTwo3xlSemiBoldCenterWhite>{ data.title1 }</HeadingTwo3xlSemiBoldCenterWhite>
+                        <div class="mx-10">
+                            <HeadingThreeExtralargexlSemiboldCenterWhite>{ data.sub_title2 }</HeadingThreeExtralargexlSemiboldCenterWhite>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <input type="text" placeholder="Email" class="w-full pl-4 py-4 text-lg text-gray-300 outline-none">
+                        <div>
+                            <div class="bg-[#222] relative py-3 w-full flex flex-row justify-between">
+                                <div class="flex flex-row gap-2">
+                                    <div class="absolute bg-white border-2 border-gray-400 rounded-sm top-5 left-4 size-6"></div>
+                                    <div class="absolute top-6 left-14">
+                                        <ParagraphsmallWhite>{ data.description2 }</ParagraphsmallWhite>
+                                    </div>
+                                </div>
+                                <div class="w-10 aspect-[15/14]">
+                                    <PictureInternal 
+                                        alternative_text="Icon"
+                                        source="/icons/recaptcha.svg"
+                                    />
+                                </div>
+                            </div>
+                            <div class="bg-white h-1"></div>
+                        </div>
+                        <ButtonRed>{ data.button_text }</ButtonRed>
+                    </div>
+                </div>
+            </div>
+            <div class="group">
+                <div class="relative group-hover:hidden h-full aspect-auto">
+                    <PictureInternal
+                        alternative_text={ data.title }
+                        source={ data.source2 }
+                    />
+                    <div class="absolute bottom-10 left-10 right-10">
+                        <div class="space-y-6">
+                            <HeadingThree4xlSemiboldCenterWhite>{ data.sub_title3 }</HeadingThree4xlSemiboldCenterWhite>
+                            <ParagraphExtrasmallCenterWhite>{ data.description3 }</ParagraphExtrasmallCenterWhite>
+                        </div>
+                    </div>
+                </div>
+                <Link aria_label={ data.title } href={ data.link2 }>
+                    <div class="bg-red-dark h-full relative hidden group-hover:block group-hover:animate-spinner-grow">
+                        <div class="absolute bottom-32 top-32 left-10 right-10">
+                            <div class="space-y-6">
+                                <HeadingThreeExtralargexlSemiboldCenterWhite>{ data.sub_title3 }</HeadingThreeExtralargexlSemiboldCenterWhite>
+                                <ParagraphExtrasmallCenterWhite>{ data.description3 }</ParagraphExtrasmallCenterWhite>
+                                <div class="flex justify-center">
+                                    <ButtonTransparentSmall>{ data.image_button_text }</ButtonTransparentSmall>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Link>
+            </div>
+        </div>
+    </div>
+</section>
