@@ -67,6 +67,7 @@ module.exports = {
 				"gray-dark": "#23262a",
 				"red-light": "#f60000",
 				"red-dark": "#a70000",
+				"light_gray":"#1A1A1A"
 
 			},
 			fontFamily: {
