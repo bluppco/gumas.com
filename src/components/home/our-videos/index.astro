@@ -1,0 +1,94 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingFiveSmallSemiboldWhite from "@/atoms/atoms-nandini/headings/five/sm/semibold/white/index.astro"
+import HeadingTwo4xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/two/4xl/bold/center/white/index.astro"
+import ParagraphLargeCenterWhite from "@/atoms/atoms-nandini/paragraphs/lg/center/white/index.astro"
+import PictureInteranl from "@/atoms/picture/internal/index.astro"
+import YoutubeVideo from "@/atoms/atoms-nandini/videos/video/index.astro"
+
+// VIDEOS ARRAY
+const videos = [
+
+    {
+        source:"/images/our-videos-1.jpg",
+        title: "Who is Gumas? | Gumas Advertising",
+    },
+    {
+        source:"/images/our-videos-2.jpg",
+        title: "What is a Challenger Brand? | Gumas Advertising",
+    },
+    {
+        source:"/images/our-videos-3.jpg",
+        title: "How do you know if you are a Challenger Brand? | Gumas Advertising",
+    },
+    {
+        source:"/images/our-videos-4.jpg",
+        title: "How does a Challenger Brand market differently than a leading brand? | Gumas Advertising",
+    },
+    {
+        source:"/images/our-videos-5.jpg",
+        title: "How do you make Challenger Brands famous? | Gumas Advertising",
+    },
+
+]
+
+// HARDCODED DATA
+const data = {
+
+    description:"Learn more about Gumas and our Challenger Brand approach.",
+    source:"https://www.youtube.com/embed/UjguywldCj4",
+    title:"Our Videos",
+
+}
+
+---
+
+<section class="bg-black py-10">
+    <Container>
+        <div class="space-y-10">
+            <div>   
+                <HeadingTwo4xlBoldCenterWhite>{ data.title }</HeadingTwo4xlBoldCenterWhite>
+                <div class="flex justify-center items-center">
+                    <div class="border-b-4 flex justify-center border-white mt-4 w-10 md:w-16 xl:w-24"></div>
+                </div>
+            </div>
+            <div>
+                <ParagraphLargeCenterWhite>{ data.description }</ParagraphLargeCenterWhite>
+            </div>
+            <div class="flex">
+                <div class="hidden md:block w-1/2 aspect-square">
+                    <YoutubeVideo 
+                        source={ data.source }
+                    />
+                </div>
+                <div class="bg-gray-dark w-full space-y-8">
+                    {
+
+                        videos.map( ( item ) =>{
+
+                            return (
+
+                                    <div class="pl-4 pt-4 flex gap-2 lg:gap-6 xl:gap-10">
+                                        <div class="h-14 aspect-video">
+                                            <PictureInteranl 
+                                                alternative_text={ item.title }
+                                                source={ item.source }
+                                            />
+                                        </div>
+                                        <HeadingFiveSmallSemiboldWhite>{ item.title }</HeadingFiveSmallSemiboldWhite>
+                                    </div>
+
+                            )
+
+                        })
+
+                    }
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>

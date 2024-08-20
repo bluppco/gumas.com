@@ -25,7 +25,16 @@ module.exports = {
     	extend: {
 
 			keyframes: {
-
+				"spinner-grow": {
+                    "0%": {
+                        transform: "scale(0)",
+                    },
+      
+                    "100%": {
+                        transform: "none",
+                        opacity: "1",
+                    },
+                },
 				"accordion-down": {
 
 					from: { height: "0" },
@@ -50,6 +59,7 @@ module.exports = {
 				"accordion-down": "accordion-down 0.2s ease-out",
         		"accordion-up": "accordion-up 0.2s ease-out",
 				"button-wobble": "button-wobble 1.5s infinite",
+				"spinner-grow": 'spinner-grow 1s ease-in-out 0.25s 1',
 
 			},
 			colors: {
@@ -58,6 +68,7 @@ module.exports = {
 				"gray-dark": "#23262a",
 				"red-light": "#f60000",
 				"red-dark": "#a70000",
+				"light_gray":"#1A1A1A"
 
 			},
 			fontFamily: {
