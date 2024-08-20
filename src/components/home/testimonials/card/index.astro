@@ -1,0 +1,37 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ParagraphBaseGray from "@/atoms/atoms-shiva/paragraphs/base/medium/gray/index.astro"
+import ParagraphBaseWhite from "@/atoms/atoms-shiva/paragraphs/base/medium/white/index.astro"
+import ParagraphLgItalic from "@/atoms/atoms-shiva/paragraphs/lg/italic/center/white/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    review,
+    user_name,
+    user_title,
+    user,
+
+} = Astro.props
+
+---
+
+<div class="flex flex-col gap-8 bg-gray-dark p-6 min-h-[400px]">
+    <div class="bg-gray-light p-4">
+        <ParagraphLgItalic>{ review }</ParagraphLgItalic>
+    </div>
+    <div class="flex items-center justify-center gap-4">
+        <div class="size-12 rounded-full overflow-hidden">
+            <PictureContain
+                alternative_text=""
+                source={ user }
+            />
+        </div>
+        <div>
+            <ParagraphBaseWhite>{ user_name }</ParagraphBaseWhite>
+            <ParagraphBaseGray>{ user_title }</ParagraphBaseGray>
+        </div>
+    </div>
+</div>

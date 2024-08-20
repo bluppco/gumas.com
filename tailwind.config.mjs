@@ -67,6 +67,7 @@ module.exports = {
 				"dark_gray": "#23262a",
 				"light_red": "#f60000",
 				"dark_red": "#a70000",
+				"gray-light": "#373a3d",
 				"light_gray":"#1A1A1A"
 
 			},
